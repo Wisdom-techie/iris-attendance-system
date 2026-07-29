@@ -5,7 +5,7 @@ const Dashboard = () => {
   return (
     <div style={pageStyle}>
       <Navbar />
-      <div style={{ padding: '32px', maxWidth: '900px', margin: '0 auto' }}>
+      <div className="page-container" style={{ maxWidth: '900px', margin: '0 auto' }}>
         <h1 style={{ marginBottom: '8px' }}>Welcome back</h1>
         <p style={{ color: colors.textMuted, marginBottom: '24px' }}>
           Manage students, sessions, and iris enrollment from here.

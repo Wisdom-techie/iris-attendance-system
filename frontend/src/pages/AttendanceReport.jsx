@@ -45,7 +45,7 @@ const AttendanceReport = () => {
   return (
     <div style={pageStyle}>
       <Navbar />
-      <div style={{ padding: '32px', maxWidth: '900px', margin: '0 auto' }}>
+      <div className="page-container" style={{ maxWidth: '900px', margin: '0 auto' }}>
         <h1 style={{ marginBottom: '4px' }}>Attendance Report</h1>
         <p style={{ color: colors.textMuted, marginBottom: '24px' }}>
           View attendance records for a specific session.
@@ -77,32 +77,34 @@ const AttendanceReport = () => {
         )}
 
         {records.length > 0 && (
-          <table style={tableStyle}>
-            <thead>
-              <tr>
-                <th style={thStyle}>Student</th>
-                <th style={thStyle}>Matric No.</th>
-                <th style={thStyle}>Status</th>
-                <th style={thStyle}>Confidence</th>
-                <th style={thStyle}>Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              {records.map((r) => (
-                <tr key={r._id}>
-                  <td style={tdStyle}>{r.student?.fullName}</td>
-                  <td style={tdStyle}>{r.student?.matricNumber}</td>
-                  <td style={tdStyle}>
-                    <span style={{ color: r.matchStatus === 'matched' ? colors.success : colors.danger }}>
-                      ● {r.matchStatus}
-                    </span>
-                  </td>
-                  <td style={tdStyle}>{r.matchConfidence}%</td>
-                  <td style={tdStyle}>{new Date(r.timestamp).toLocaleTimeString()}</td>
+          <div className="table-wrapper">
+            <table style={tableStyle}>
+              <thead>
+                <tr>
+                  <th style={thStyle}>Student</th>
+                  <th style={thStyle}>Matric No.</th>
+                  <th style={thStyle}>Status</th>
+                  <th style={thStyle}>Confidence</th>
+                  <th style={thStyle}>Time</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {records.map((r) => (
+                  <tr key={r._id}>
+                    <td style={tdStyle}>{r.student?.fullName}</td>
+                    <td style={tdStyle}>{r.student?.matricNumber}</td>
+                    <td style={tdStyle}>
+                      <span style={{ color: r.matchStatus === 'matched' ? colors.success : colors.danger }}>
+                        ● {r.matchStatus}
+                      </span>
+                    </td>
+                    <td style={tdStyle}>{r.matchConfidence}%</td>
+                    <td style={tdStyle}>{new Date(r.timestamp).toLocaleTimeString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     </div>

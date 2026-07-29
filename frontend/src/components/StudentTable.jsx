@@ -6,38 +6,40 @@ const StudentTable = ({ students, onDelete }) => {
   }
 
   return (
-    <table style={tableStyle}>
-      <thead>
-        <tr>
-          <th style={thStyle}>Full Name</th>
-          <th style={thStyle}>Matric No.</th>
-          <th style={thStyle}>Department</th>
-          <th style={thStyle}>Level</th>
-          <th style={thStyle}>Iris Enrolled</th>
-          <th style={thStyle}></th>
-        </tr>
-      </thead>
-      <tbody>
-        {students.map((s) => (
-          <tr key={s._id}>
-            <td style={tdStyle}>{s.fullName}</td>
-            <td style={tdStyle}>{s.matricNumber}</td>
-            <td style={tdStyle}>{s.department}</td>
-            <td style={tdStyle}>{s.level}</td>
-            <td style={tdStyle}>
-              {s.irisEnrolled ? (
-                <span style={{ color: colors.success }}>● Enrolled</span>
-              ) : (
-                <span style={{ color: colors.textMuted }}>○ Not enrolled</span>
-              )}
-            </td>
-            <td style={tdStyle}>
-              <button style={buttonDangerStyle} onClick={() => onDelete(s._id)}>Delete</button>
-            </td>
+    <div className="table-wrapper">
+      <table style={tableStyle}>
+        <thead>
+          <tr>
+            <th style={thStyle}>Full Name</th>
+            <th style={thStyle}>Matric No.</th>
+            <th style={thStyle}>Department</th>
+            <th style={thStyle}>Level</th>
+            <th style={thStyle}>Iris Enrolled</th>
+            <th style={thStyle}></th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {students.map((s) => (
+            <tr key={s._id}>
+              <td style={tdStyle}>{s.fullName}</td>
+              <td style={tdStyle}>{s.matricNumber}</td>
+              <td style={tdStyle}>{s.department}</td>
+              <td style={tdStyle}>{s.level}</td>
+              <td style={tdStyle}>
+                {s.irisEnrolled ? (
+                  <span style={{ color: colors.success }}>● Enrolled</span>
+                ) : (
+                  <span style={{ color: colors.textMuted }}>○ Not enrolled</span>
+                )}
+              </td>
+              <td style={tdStyle}>
+                <button style={buttonDangerStyle} onClick={() => onDelete(s._id)}>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

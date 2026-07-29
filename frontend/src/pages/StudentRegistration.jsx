@@ -53,14 +53,14 @@ const StudentRegistration = () => {
   return (
     <div style={pageStyle}>
       <Navbar />
-      <div style={{ padding: '32px', maxWidth: '900px', margin: '0 auto' }}>
+      <div className="page-container" style={{ maxWidth: '900px', margin: '0 auto' }}>
         <h1 style={{ marginBottom: '4px' }}>Student Registration</h1>
         <p style={{ color: colors.textMuted, marginBottom: '24px' }}>Register new students and manage existing records.</p>
 
         <div style={cardStyle}>
           {error && <div style={{ color: colors.danger, marginBottom: '12px', fontSize: '14px' }}>{error}</div>}
 
-          <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+          <form onSubmit={handleSubmit} className="form-grid">
             <input style={inputStyle} name="fullName" placeholder="Full Name" value={form.fullName} onChange={handleChange} required />
             <input style={inputStyle} name="matricNumber" placeholder="Matric Number" value={form.matricNumber} onChange={handleChange} required />
             <input style={inputStyle} name="department" placeholder="Department" value={form.department} onChange={handleChange} required />

@@ -60,7 +60,7 @@ const IrisVerification = () => {
   return (
     <div style={pageStyle}>
       <Navbar />
-      <div style={{ padding: '32px', maxWidth: '600px', margin: '0 auto' }}>
+      <div className="page-container" style={{ maxWidth: '600px', margin: '0 auto' }}>
         <h1 style={{ marginBottom: '4px' }}>Iris Verification</h1>
         <p style={{ color: colors.textMuted, marginBottom: '24px' }}>
           Verify a student's identity via iris capture to record attendance.

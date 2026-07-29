@@ -51,14 +51,14 @@ const Sessions = () => {
   return (
     <div style={pageStyle}>
       <Navbar />
-      <div style={{ padding: '32px', maxWidth: '900px', margin: '0 auto' }}>
+      <div className="page-container" style={{ maxWidth: '900px', margin: '0 auto' }}>
         <h1 style={{ marginBottom: '4px' }}>Attendance Sessions</h1>
         <p style={{ color: colors.textMuted, marginBottom: '24px' }}>Open and manage attendance windows for each course.</p>
 
         <div style={cardStyle}>
           {error && <div style={{ color: colors.danger, marginBottom: '12px', fontSize: '14px' }}>{error}</div>}
 
-          <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+          <form onSubmit={handleSubmit} className="form-grid">
             <input style={inputStyle} name="courseCode" placeholder="Course Code (e.g. CEN564)" value={form.courseCode} onChange={handleChange} required />
             <input style={inputStyle} name="courseTitle" placeholder="Course Title" value={form.courseTitle} onChange={handleChange} />
             <input style={inputStyle} name="lecturer" placeholder="Lecturer" value={form.lecturer} onChange={handleChange} required />
@@ -79,38 +79,40 @@ const Sessions = () => {
           </form>
         </div>
 
-        <table style={tableStyle}>
-          <thead>
-            <tr>
-              <th style={thStyle}>Course</th>
-              <th style={thStyle}>Lecturer</th>
-              <th style={thStyle}>Level</th>
-              <th style={thStyle}>Start</th>
-              <th style={thStyle}>Status</th>
-              <th style={thStyle}></th>
-            </tr>
-          </thead>
-          <tbody>
-            {sessions.map((s) => (
-              <tr key={s._id}>
-                <td style={tdStyle}>{s.courseCode}</td>
-                <td style={tdStyle}>{s.lecturer}</td>
-                <td style={tdStyle}>{s.level}</td>
-                <td style={tdStyle}>{new Date(s.startTime).toLocaleString()}</td>
-                <td style={tdStyle}>
-                  <span style={{ color: s.status === 'open' ? colors.success : colors.textMuted }}>
-                    ● {s.status}
-                  </span>
-                </td>
-                <td style={tdStyle}>
-                  {s.status === 'open' && (
-                    <button style={buttonSecondaryStyle} onClick={() => handleClose(s._id)}>Close</button>
-                  )}
-                </td>
+        <div className="table-wrapper">
+          <table style={tableStyle}>
+            <thead>
+              <tr>
+                <th style={thStyle}>Course</th>
+                <th style={thStyle}>Lecturer</th>
+                <th style={thStyle}>Level</th>
+                <th style={thStyle}>Start</th>
+                <th style={thStyle}>Status</th>
+                <th style={thStyle}></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {sessions.map((s) => (
+                <tr key={s._id}>
+                  <td style={tdStyle}>{s.courseCode}</td>
+                  <td style={tdStyle}>{s.lecturer}</td>
+                  <td style={tdStyle}>{s.level}</td>
+                  <td style={tdStyle}>{new Date(s.startTime).toLocaleString()}</td>
+                  <td style={tdStyle}>
+                    <span style={{ color: s.status === 'open' ? colors.success : colors.textMuted }}>
+                      ● {s.status}
+                    </span>
+                  </td>
+                  <td style={tdStyle}>
+                    {s.status === 'open' && (
+                      <button style={buttonSecondaryStyle} onClick={() => handleClose(s._id)}>Close</button>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

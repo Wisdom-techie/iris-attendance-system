@@ -36,8 +36,9 @@ const Login = () => {
       justifyContent: 'center',
       alignItems: 'center',
       fontFamily: "'Inter', system-ui, sans-serif",
+      padding: '16px',
     }}>
-      <form onSubmit={handleSubmit} style={{ ...cardStyle, width: '340px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+      <form onSubmit={handleSubmit} className="login-card" style={{ ...cardStyle, display: 'flex', flexDirection: 'column', gap: '14px' }}>
         <div>
           <h2 style={{ margin: 0, color: colors.text }}>Iris Attendance</h2>
           <p style={{ margin: '4px 0 0', color: colors.textMuted, fontSize: '13px' }}>Admin sign in</p>

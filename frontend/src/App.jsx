@@ -15,61 +15,12 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route path="/login" element={<Login />} />
-
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            path="/students"
-            element={
-              <ProtectedRoute>
-                <StudentRegistration />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            path="/sessions"
-            element={
-              <ProtectedRoute>
-                <Sessions />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            path="/enrollment"
-            element={
-              <ProtectedRoute>
-                <IrisEnrollment />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            path="/verification"
-            element={
-              <ProtectedRoute>
-                <IrisVerification />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            path="/report"
-            element={
-              <ProtectedRoute>
-                <AttendanceReport />
-              </ProtectedRoute>
-            }
-          />
-
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/students" element={<ProtectedRoute><StudentRegistration /></ProtectedRoute>} />
+          <Route path="/sessions" element={<ProtectedRoute><Sessions /></ProtectedRoute>} />
+          <Route path="/enrollment" element={<ProtectedRoute><IrisEnrollment /></ProtectedRoute>} />
+          <Route path="/verification" element={<ProtectedRoute><IrisVerification /></ProtectedRoute>} />
+          <Route path="/report" element={<ProtectedRoute><AttendanceReport /></ProtectedRoute>} />
           <Route path="/" element={<Login />} />
         </Routes>
       </AuthProvider>

@@ -16,7 +16,7 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <div style={{
+    <div className="navbar" style={{
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
@@ -24,7 +24,7 @@ const Navbar = () => {
       background: colors.surface,
       borderBottom: `1px solid ${colors.border}`,
     }}>
-      <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+      <div className="navbar-links" style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
         <strong style={{ color: colors.primary }}>Iris Attendance</strong>
         {links.map((link) => (
           <Link
@@ -42,7 +42,7 @@ const Navbar = () => {
         ))}
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div className="navbar-user" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         <span style={{ color: colors.textMuted, fontSize: '13px' }}>
           {admin?.name} ({admin?.role})
         </span>
